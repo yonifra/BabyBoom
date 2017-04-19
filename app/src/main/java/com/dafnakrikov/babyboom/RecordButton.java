@@ -17,7 +17,7 @@ import java.util.Date;
 /**
  * Created by yonif on 15/10/2015.
  */
-public class RecordButton extends Button {
+public class RecordButton extends android.support.v7.widget.AppCompatButton {
     boolean mStartRecording = true;
     private MediaRecorder mRecorder = null;
     private static final String LOG_TAG = "RecordButton";
