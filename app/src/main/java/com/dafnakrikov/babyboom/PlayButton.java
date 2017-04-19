@@ -5,14 +5,10 @@ import android.media.MediaPlayer;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 
 import java.io.IOException;
 
-/**
- * Created by yonif on 15/10/2015.
- */
-public class PlayButton extends Button {
+public class PlayButton extends android.support.v7.widget.AppCompatButton {
     boolean mStartPlaying = true;
     private MediaPlayer mPlayer = null;
     private static final String LOG_TAG = "PlayButton";
@@ -21,9 +17,9 @@ public class PlayButton extends Button {
         public void onClick(View v) {
             onPlay(mStartPlaying);
             if (mStartPlaying) {
-                setText("STOP");
+                setText(R.string.Stop);
             } else {
-                setText("PLAY");
+                setText(R.string.Play);
             }
             mStartPlaying = !mStartPlaying;
         }
@@ -36,19 +32,21 @@ public class PlayButton extends Button {
 
     public PlayButton(Context ctx) {
         super(ctx);
-        setText("PLAY");
-        setOnClickListener(clicker);
+        initializeButton();
     }
 
     public PlayButton(Context context, AttributeSet attrs) {
         super(context, attrs); // This should be first line of constructor
-        setText("PLAY");
-        setOnClickListener(clicker);
+        initializeButton();
     }
 
     public PlayButton(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-        setText("PLAY");
+        initializeButton();
+    }
+
+    private void initializeButton(){
+        setText(R.string.Play);
         setOnClickListener(clicker);
     }
 
@@ -66,7 +64,7 @@ public class PlayButton extends Button {
             String mFileName = RecordButton.Filename;
 
             if(mFileName == null){
-                setText("PLAY");
+                setText(R.string.Play);
                 mStartPlaying = false;
                 return;
             }

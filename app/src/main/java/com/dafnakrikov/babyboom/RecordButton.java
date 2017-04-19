@@ -6,7 +6,6 @@ import android.os.Environment;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 
 import java.io.File;
 import java.io.IOException;
@@ -14,9 +13,6 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-/**
- * Created by yonif on 15/10/2015.
- */
 public class RecordButton extends android.support.v7.widget.AppCompatButton {
     boolean mStartRecording = true;
     private MediaRecorder mRecorder = null;
@@ -24,8 +20,7 @@ public class RecordButton extends android.support.v7.widget.AppCompatButton {
     private static String mFileName = null;
     private static final String RECORDINGS_PATH = Environment.getExternalStorageDirectory().getAbsolutePath() + "/BabyBoom";
 
-    public MediaRecorder getRecorder()
-    {
+    public MediaRecorder getRecorder(){
         return mRecorder;
     }
 
@@ -33,9 +28,9 @@ public class RecordButton extends android.support.v7.widget.AppCompatButton {
         public void onClick(View v) {
             onRecord(mStartRecording);
             if (mStartRecording) {
-                setText("STOP");
+                setText(R.string.stop);
             } else {
-                setText("RECORD");
+                setText(R.string.record);
             }
             mStartRecording = !mStartRecording;
         }
@@ -43,19 +38,19 @@ public class RecordButton extends android.support.v7.widget.AppCompatButton {
 
     public RecordButton(Context ctx) {
         super(ctx);
-        setText("RECORD");
+        setText(R.string.record);
         setOnClickListener(clicker);
     }
 
     public RecordButton(Context context, AttributeSet attrs) {
         super(context, attrs); // This should be first line of constructor
-        setText("RECORD");
+        setText(R.string.record);
         setOnClickListener(clicker);
     }
 
     public RecordButton(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-        setText("RECORD");
+        setText(R.string.record);
         setOnClickListener(clicker);
     }
 
